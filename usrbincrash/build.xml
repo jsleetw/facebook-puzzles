@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="usrbincrash" default="compile">
+    <target name="compile">
+        <mkdir dir="classes"/>
+        <javac srcdir="src" destdir="classes" debug="on" includeantruntime="false">
+            <compilerarg value="-Xlint:unchecked"/>
+        </javac>
+    </target>
+</project>
