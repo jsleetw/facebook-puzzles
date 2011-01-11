@@ -3,6 +3,7 @@ package logic;
 import java.util.HashMap;
 import static java.lang.Math.*;
 
+// TODO: cache found prime numbers and factorisation results
 public class IntegerFactorizator {
 
     private static HashMap<Integer, HashMap<Integer, Integer>> cache;
@@ -41,7 +42,4 @@ public class IntegerFactorizator {
         }
     }
 
-    private static boolean isPrimeNumber(int n) {
-        return true;
-    }
 }
