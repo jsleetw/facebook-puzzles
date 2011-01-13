@@ -20,13 +20,13 @@ public class IntegerFactorizatorTest {
         checkFactorization(12, toArray(3,2), toArray(1,2));
         checkFactorization(42, toArray(7,3,2), toArray(1,1,1));
         checkFactorization(144, toArray(3,2), toArray(2,4));
+        checkFactorization(2008000000, toArray(2,251,5), toArray(9,1,6));
     }
 
     // Helper
     private void checkFactorization(int n, int[] factors, int[] powers) {
         assert factors.length == powers.length;
         HashMap<Integer, Integer> result = IntegerFactorizator.factorize(n);
-
         assertEquals(factors.length, result.size());
 
         for (int i=0; i<factors.length; i++) {
