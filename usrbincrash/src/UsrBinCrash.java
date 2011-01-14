@@ -1,10 +1,12 @@
 import logic.StockKeepingUnit;
 import logic.ThrowSelector;
+import logic.ThrowSelectorEnhanced;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.ArrayList;
-import java.util.HashMap;
+
+import static logic.UnitsCalc.*;
 
 public class UsrBinCrash {
 
@@ -33,10 +35,14 @@ public class UsrBinCrash {
             System.out.println("Cache disabled!!!");
         }
 
-        ArrayList<StockKeepingUnit> unitsToThrow = ThrowSelector.whatToThrow(weightToThrow, units, args.length == 1);
+        ArrayList<StockKeepingUnit> unitsToThrow = ThrowSelectorEnhanced.whatToThrow(weightToThrow, units, args.length == 1);
 
-        System.out.println(ThrowSelector.valueSum(unitsToThrow));
+        System.out.println(valueSum(unitsToThrow));
 
-        //System.out.println("Cache missed: " + ThrowSelector.cacheMiss + " times and hit " + ThrowSelector.cacheHit + " times");
+//        for(StockKeepingUnit unit : unitsToThrow) {
+//            System.out.println("ToThrow: " + unit.getLabel() + " " + unit.getWeight() + " " + unit.getCost() );
+//        }
+
+//        System.out.println("\nCache missed: " + ThrowSelector.cacheMiss + " times and hit " + ThrowSelector.cacheHit + " times");
     }
 }

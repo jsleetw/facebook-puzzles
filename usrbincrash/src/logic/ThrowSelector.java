@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
+import static logic.UnitsCalc.*;
 
 public class ThrowSelector {
 
@@ -66,15 +67,5 @@ public class ThrowSelector {
 
     public static ArrayList<StockKeepingUnit> whatToThrow(long weightToThrow, ArrayList<StockKeepingUnit> source) {
         return whatToThrow(weightToThrow, source, true);
-    }
-
-    public static long valueSum(ArrayList<StockKeepingUnit> source) {
-        long totalThrown = 0;
-
-        for (StockKeepingUnit unitToThrow : source) {
-            totalThrown += unitToThrow.getCost();
-        }
-
-        return totalThrown;
     }
 }

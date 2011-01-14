@@ -1,7 +1,7 @@
 package test;
 
 import logic.StockKeepingUnit;
-import logic.ThrowSelector;
+import logic.ThrowSelectorEnhanced;
 import logic.UnitsCalc;
 import org.junit.*;
 
@@ -11,7 +11,7 @@ import static junit.framework.Assert.*;
 
 import static org.mockito.Mockito.*;
 
-public class ThrowSelectorTest {
+public class ThrowSelectorEnhancedTest {
 
     private ArrayList<StockKeepingUnit> units;
 
@@ -20,14 +20,14 @@ public class ThrowSelectorTest {
     }
 
     @Test public void nothingToThrowBecauseNothingGiven() {
-        assertEquals(0, ThrowSelector.whatToThrow(0, units).size());
+        assertEquals(0, ThrowSelectorEnhanced.whatToThrow(0, units).size());
     }
 
     @Test public void throwEverythingBecauseWeCanNotLeaveNothing() {
         units.add(new StockKeepingUnit("item1", 10, 10));
         units.add(new StockKeepingUnit("item2", 20, 20));
 
-        assertEquals(2, ThrowSelector.whatToThrow(30, units).size());
+        assertEquals(2, ThrowSelectorEnhanced.whatToThrow(30, units).size());
     }
 
     @Test public void choiceWhatToThrowIsClear() {
@@ -35,7 +35,7 @@ public class ThrowSelectorTest {
         units.add(new StockKeepingUnit("item1", 10, 10));
         units.add(new StockKeepingUnit("item2", 20, 20));
 
-        ArrayList<StockKeepingUnit> result = ThrowSelector.whatToThrow(20, units);
+        ArrayList<StockKeepingUnit> result = ThrowSelectorEnhanced.whatToThrow(20, units);
         assertEquals(1, result.size());
         assertEquals("item2", result.get(0).getLabel());
     }
@@ -46,7 +46,7 @@ public class ThrowSelectorTest {
         units.add(new StockKeepingUnit("item3", 10, 5));
 
 
-        ArrayList<StockKeepingUnit> result = ThrowSelector.whatToThrow(10, units);
+        ArrayList<StockKeepingUnit> result = ThrowSelectorEnhanced.whatToThrow(10, units);
         assertEquals(1, result.size());
         assertEquals("item3", result.get(0).getLabel());
     }
@@ -58,7 +58,7 @@ public class ThrowSelectorTest {
         units.add(new StockKeepingUnit("HJ394L", 200, 3250));
         units.add(new StockKeepingUnit("O1IE82", 75, 10250));
 
-        ArrayList<StockKeepingUnit> result = ThrowSelector.whatToThrow(775, units);
+        ArrayList<StockKeepingUnit> result = ThrowSelectorEnhanced.whatToThrow(775, units);
 
         assertEquals(8000, UnitsCalc.valueSum(result));
 
