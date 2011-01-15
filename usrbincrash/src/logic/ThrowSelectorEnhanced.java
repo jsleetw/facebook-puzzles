@@ -33,8 +33,8 @@ public class ThrowSelectorEnhanced {
         withoutCurrentItem.remove(withoutCurrentItem.get(0));
 
         ArrayList<StockKeepingUnit> toThrowWithoutCurrent = whatToThrow(weightToThrow, withoutCurrentItem, useCache);
-
         ArrayList<StockKeepingUnit> toThrowWithCurrent = whatToThrow(weightToThrow - source.get(0).getWeight(), withoutCurrentItem, useCache);
+
         toThrowWithCurrent.add(source.get(0));
 
         if (withoutCurrentItem.size() == 0) {
