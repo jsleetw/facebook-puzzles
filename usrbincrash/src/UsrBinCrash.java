@@ -38,7 +38,7 @@ public class UsrBinCrash {
         ArrayList<StockKeepingUnit> unitsToThrow = ThrowSelectorEnhanced.whatToThrow(weightToThrow, units, args.length == 1);
 
         System.out.println(valueSum(unitsToThrow));
-
+//
 //        for(StockKeepingUnit unit : unitsToThrow) {
 //            System.out.println("ToThrow: " + unit.getLabel() + " " + unit.getWeight() + " " + unit.getCost() );
 //        }

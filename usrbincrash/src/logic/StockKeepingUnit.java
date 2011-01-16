@@ -23,4 +23,8 @@ public class StockKeepingUnit {
     public long getCost() {
         return cost;
     }
+
+    public String toString() {
+        return getLabel() + ":" + getWeight() + "kg;"+getCost()+"$";
+    }
 }
