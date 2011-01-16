@@ -41,27 +41,16 @@ public class ThrowSelectorEnhanced {
             return toThrowWithCurrent;
         }
 
-//        System.out.println("Current item:");
-//        System.out.println("    label: " + source.get(0).getLabel() + " " + source.get(0).getWeight() + " " + source.get(0).getCost() );
-//        System.out.println("Left:");
-//        for(StockKeepingUnit unit : withoutCurrentItem) {
-//            System.out.println("    label: " + unit.getLabel() + " " + unit.getWeight() + " " + unit.getCost() );
-//        }
-//
-//        System.out.println("    s: " +source.size()+ " ntt: "+weightToThrow+" w: " + valueSum(toThrowWithCurrent) + "$ ("+weightSum(toThrowWithCurrent)+"kg) : wo" + valueSum(toThrowWithoutCurrent) + "$ (" + weightSum(toThrowWithoutCurrent) + "kg) ");
-
         if (valueSum(toThrowWithCurrent) < valueSum(toThrowWithoutCurrent) || weightSum(toThrowWithoutCurrent) < weightToThrow) {
             // Take current
-//            System.out.println("    +");
             result = toThrowWithCurrent;
         } else {
-//            System.out.println("    -");
             // Skip current
             result = toThrowWithoutCurrent;
         }
 
         if (useCache) {
-            cache.put(cacheKey, result);
+            cache.put(cacheKey, new ArrayList<StockKeepingUnit>(result));
         }
 
         return result;
