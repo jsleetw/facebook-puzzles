@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project name="usrbincrash" default="compile">
+    <target name="compile">
+        <mkdir dir="classes"/>
+        <copy file="./src/log4j.properties" todir="./classes" />
+        <javac srcdir="src" excludes="**test/*" destdir="classes" debug="on" includeantruntime="false">
+            <classpath path="./classes"/>
+            <classpath path="./lib/jsi-1.0b6.jar"/>
+            <classpath path="./lib/trove-2.0.2.jar"/>
+            <compilerarg value="-Xlint:unchecked"/>
+        </javac>
+    </target>
+
+    <target name="compile.tests" depends="compile">
+
+        <mkdir dir="classes/test"/>
+
+        <javac srcdir="src/test" destdir="classes" debug="on" includeantruntime="false">
+            <classpath path="./classes"/>
+            <classpath path="/usr/local/lib/junit-4.8.2.jar"/>
+            <classpath path="/usr/local/lib/mockito/mockito-all-1.8.5.jar"/>
+            <compilerarg value="-Xlint:unchecked"/>
+        </javac>
+    </target>
+
+    <target name="test" depends="compile.tests">
+        <junit fork="yes" haltonfailure="yes">
+            <classpath path="./classes"/>
+            <classpath path="/usr/local/lib/junit-4.8.2.jar"/>
+            <formatter type="plain" usefile="false"/>
+            <batchtest>
+                <fileset dir="./classes" includes="**/*Test.class"/>
+            </batchtest>
+        </junit>
+    </target>
+
+
+</project>
