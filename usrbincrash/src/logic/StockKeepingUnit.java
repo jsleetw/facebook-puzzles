@@ -27,4 +27,8 @@ public class StockKeepingUnit {
     public String toString() {
         return getLabel() + ":" + getWeight() + "kg;"+getCost()+"$";
     }
+
+    public float getPricePerWeightUnit() {
+        return Float.valueOf(getCost()) / Float.valueOf(getWeight());
+    }
 }

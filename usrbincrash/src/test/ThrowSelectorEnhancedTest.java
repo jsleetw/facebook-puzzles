@@ -58,9 +58,9 @@ public class ThrowSelectorEnhancedTest {
         units.add(new StockKeepingUnit("HJ394L", 200, 3250));
         units.add(new StockKeepingUnit("O1IE82", 75, 10250));
 
-        ArrayList<StockKeepingUnit> result = ThrowSelectorEnhanced.whatToThrow(775, units);
+        ArrayList<StockKeepingUnit> result = ThrowSelectorEnhanced.whatToThrow(1250, units);
 
-        assertEquals(8000, UnitsCalc.valueSum(result));
+        assertEquals(9500, UnitsCalc.valueSum(result));
 
     }
 
