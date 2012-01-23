@@ -10,13 +10,19 @@ public class StateTreeBuilder {
 
         List<Board> result = new ArrayList<Board>();
 
+        if (board.getWords().size() <= 1) {
+            return result;
+        }
+
         List<String> reversedWords = board.getWords();
         Collections.reverse(reversedWords);
 
         StringBuilder accumulator = new StringBuilder();
-        
+
+        int i = 0;
         for (String word : reversedWords) {
-            if (board.getWords().indexOf(word) == 0) {
+            i++;
+            if (i == board.getWords().size()) {
                 continue; // Don't move first word
             }
 

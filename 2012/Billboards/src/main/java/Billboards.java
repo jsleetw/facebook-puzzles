@@ -1,12 +1,11 @@
 import logic.BoardPrinter;
 import model.Board;
 import org.apache.commons.io.FileUtils;
+import org.apache.log4j.Logger;
 
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.LogManager;
-import java.util.logging.Logger;
 
 public class Billboards {
 
@@ -24,6 +23,10 @@ public class Billboards {
         logger.info("Number of cases: " + numberOfCases);
 
         for (int i = 1; i<= numberOfCases; i++) {
+
+            BoardPrinter.clearCache();
+
+            logger.info("On case" + i);
 
             String line = lines.get(i);
             String[] values = line.split(" ");

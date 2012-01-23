@@ -1,12 +1,18 @@
 package logic;
 
 import model.Board;
+import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
 
 import static junit.framework.Assert.assertEquals;
 
 public class BoardPrinterTest {
+
+    @Before
+    public void clearCache() {
+        BoardPrinter.clearCache();
+    }
 
     @Test
     public void shouldDetectIfItIsImpossibleToWriteText() {
