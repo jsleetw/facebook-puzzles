@@ -25,6 +25,11 @@ public class BoardPrinterTest {
     }
 
     @Test
+    public void shouldNotPut() {
+        assertEquals(0, BoardPrinter.getTextSize(new Board(3, 20, "1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0")));
+    }
+
+    @Test
     public void shouldPutInOneLineWithSizeLimitedByHeight() {
         assertEquals(2, BoardPrinter.getTextSize(new Board(999, 2, "hello")));
     }
