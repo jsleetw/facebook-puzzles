@@ -98,7 +98,7 @@ public class Billboards2 {
                 try {
                     if (!wordsToMove.isEmpty()) {
 
-                        String[] newNextLine = new String[(int) board.getWidth()];
+                        String[] newNextLine = new String[board.getWords().size()];
                         int newNextLineIndex = 0;
                         for (String s : wordsToMove) {
                             newNextLine[newNextLineIndex] = s;
@@ -119,7 +119,7 @@ public class Billboards2 {
                         strings[lineNumber + 1] = newNextLine;
                     }
                 } catch (ArrayIndexOutOfBoundsException e) {
-                    logger.warn("Out of table because: " + e.getMessage());
+                    logger.warn("Out of table because of exception: " + e.getClass().getSimpleName() + " " + e.getMessage());
                     return currentFontSize - 1;
                 }
 
